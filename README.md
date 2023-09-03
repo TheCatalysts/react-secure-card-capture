@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Credit Card Validation App using React.js , Redux store and Tailwind CSS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a front-end application built using React.js and Tailwind CSS that allows users to submit credit card details for validation. The application checks the specified country against a list of banned countries, stores valid cards for the session using redux store, and displays captured credit cards during the session.
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+The Credit Card Validation App fulfills the following requirements:
 
-### `npm start`
+- Allow users to submit credit card details, including the country it is from.
+- Validate the specified country against a list of banned countries.
+- Store valid credit cards for the session.
+- Display captured credit cards during the session.
+- Prevent capturing the same card twice.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User-friendly form interface for entering credit card details.
+- Validation of credit card number format.
+- Dropdown to select the country of the credit card.
+- Validation of the specified country against banned countries.
+- Prevents duplicate submission of the same credit card.
+- Responsive design for various screen sizes.
+- Neatly displays captured valid credit cards.
 
-### `npm test`
+## Sequence Diagram 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```mermaid
+sequenceDiagram
+  participant User as User
+  participant FormComponent as Form Component
+  participant ValidationComponent as Validation Component
+  participant ReduxStore as Redux Store
 
-### `npm run build`
+  User ->> FormComponent: Enters card info
+  FormComponent ->> ValidationComponent: Sends card data
+  ValidationComponent ->> ValidationComponent: Validate data
+  alt Data is valid
+    ValidationComponent -->> FormComponent: Validation successful
+    FormComponent ->> ReduxStore: Store data in Redux
+    ReduxStore -->> FormComponent: Data stored
+    FormComponent ->> User: Display success message
+  else Data is invalid
+    ValidationComponent -->> FormComponent: Validation failed
+    FormComponent ->> User: Display error message
+  end
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/TheCatalysts/secure-card-capture
+```
 
-### `npm run eject`
+2. Navigate to the project directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd credit-card-validation-app
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Install the required dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Start the development server:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Open your web browser and navigate to `http://localhost:3000` to access the application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+- React.js: A JavaScript library for building user interfaces.
+- Tailwind CSS: A utility-first CSS framework for rapid UI development.
+- ReactRedux: a state management library for managing application state and store information for a session.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributions
 
-### Making a Progressive Web App
+Contributions are welcome! If you find any issues or want to enhance the application, feel free to submit a pull request. Alternatively you can reach out to me on the contact details below.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact
 
-### Advanced Configuration
+If you have any questions or need further assistance, please feel free to contact me :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+<p align="left">
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<p align="left">
+  <img src="https://img.icons8.com/ios/24/FF5733/email.png" alt="Email" style="vertical-align: middle; margin-right: 10px;" />
+  <b>:</b> sthelonombusor@gmail.com
+</p>
 
-### `npm run build` fails to minify
+<p align="left">
+  <img src="https://img.icons8.com/ios/24/36A2EB/github.png" alt="GitHub" style="vertical-align: middle; margin-right: 10px;" />
+  <b>:</b> (https://github.com/TheCatalysts/)
+</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
