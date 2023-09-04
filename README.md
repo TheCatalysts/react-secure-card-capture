@@ -22,7 +22,7 @@ The Credit Card Validation App fulfills the following requirements:
 - Responsive design for various screen sizes.
 - Neatly displays captured valid credit cards.
 
-## Sequence Diagram 
+## Sequence Diagram
 
 ```mermaid
 sequenceDiagram
@@ -45,12 +45,13 @@ sequenceDiagram
   end
 
 ```
+
 ## Getting Started
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/TheCatalysts/secure-card-capture
+https://github.com/TheCatalysts/react-secure-card-capture.git
 ```
 
 2. Navigate to the project directory:
@@ -73,9 +74,7 @@ npm start
 
 5. Open your web browser and navigate to `http://localhost:3000` to access the application.
 
-
 ## Technologies Used
-
 
 - React.js: A JavaScript library for building user interfaces.
 - Tailwind CSS: A utility-first CSS framework for rapid UI development.
@@ -89,7 +88,6 @@ Contributions are welcome! If you find any issues or want to enhance the applica
 
 If you have any questions or need further assistance, please feel free to contact me :
 
-
 <p align="left">
 </p>
 
@@ -102,9 +100,6 @@ If you have any questions or need further assistance, please feel free to contac
   <img src="https://img.icons8.com/ios/24/36A2EB/github.png" alt="GitHub" style="vertical-align: middle; margin-right: 10px;" />
   <b>:</b> (https://github.com/TheCatalysts/)
 </p>
-
-
-
 
 ## License
 
