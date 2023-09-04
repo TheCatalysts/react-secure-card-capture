@@ -32,7 +32,7 @@ describe('App Component', () => {
         <App />
       </Provider>
     );
-    const creditFormElement = screen.getByTestId('credit-form'); // Adjust the test ID as per your component
+    const creditFormElement = screen.getByTestId('credit-form'); 
     expect(creditFormElement).toBeInTheDocument();
   });
 
@@ -42,7 +42,7 @@ describe('App Component', () => {
         <App />
       </Provider>
     );
-    const creditCardTableElement = screen.getByTestId('credit-card-table'); // Adjust the test ID as per your component
+    const creditCardTableElement = screen.getByTestId('credit-card-table');
     expect(creditCardTableElement).toBeInTheDocument();
   });
 
