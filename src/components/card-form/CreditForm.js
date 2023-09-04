@@ -57,7 +57,7 @@ const CreditForm = () => {
           </div>
           : null
       }
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} id ="credit-form">
         <h4 className="text-2xl header font-bold mb-6">Credit Card</h4>
 
         <InputField

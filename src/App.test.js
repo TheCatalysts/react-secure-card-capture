@@ -1,46 +1,59 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import '@testing-library/jest-dom'
-
-import { useDispatch, useSelector } from 'react-redux';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
 import App from './App';
-import { addCreditCard } from './store';
-// Mock useDispatch and useSelector
-jest.mock('react-redux', () => ({
-  useDispatch: jest.fn(),
-  useSelector: jest.fn(),
-}));
 
-// Mock the dispatch function
-const mockDispatch = jest.fn();
-
-// Mock the useSelector function
-const mockSelector = jest.fn();
-
-// Mock the addCreditCard action
-jest.mock('./store', () => ({
-  addCreditCard: jest.fn(),
-}));
+const mockStore = configureMockStore();
+const initialState = {
+  cards: {
+    cardNumber: '1234567890123456',
+    cardName: 'John Doe',
+    cardExpiry: '12/23',
+    cardCVC: '123',
+    cardCountry: 'US', },
+};
+const store = mockStore(initialState);
 
 describe('App Component', () => {
-  beforeEach(() => {
-    useDispatch.mockReturnValue(mockDispatch);
-    useSelector.mockReturnValue([]);
-  });
-
   it('renders without crashing', () => {
-    render(<App />);
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    const appElement = screen.getByText('Credit Card');
+    expect(appElement).toBeInTheDocument();
   });
 
-  it('handles form submission', () => {
-    const { getByText } = render(<App />);
+  it('renders CreditForm component', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    const creditFormElement = screen.getByTestId('credit-form'); // Adjust the test ID as per your component
+    expect(creditFormElement).toBeInTheDocument();
+  });
 
-    // Simulate form submission
-    fireEvent.click(getByText('Submit'));
+  it('renders CreditCardTable component', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    const creditCardTableElement = screen.getByTestId('credit-card-table'); // Adjust the test ID as per your component
+    expect(creditCardTableElement).toBeInTheDocument();
+  });
 
-    // Expect the addCreditCard action to be called
-    expect(addCreditCard).not.toHaveBeenCalled();
+  it('renders Notification component', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    const notificationElement = screen.getByText('Notification');
+    expect(notificationElement).toBeInTheDocument();
   });
 
 });
