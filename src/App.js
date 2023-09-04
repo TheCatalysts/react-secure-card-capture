@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import CreditForm from './components/card-form/CreditForm';
+import CreditCardTable from './components/credit-card-table/CreditCardTable';
+import Notification from './components/Notification'; 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Notification />
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-90-vw bg-white-095 rounded shadow-md">
+
+          <div className="flex">
+            <div className="w-1/3 p-8">
+              <CreditForm />
+            </div>
+            <div className="w-2/3 p-8 credit-cards-table-container">
+              <CreditCardTable />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
