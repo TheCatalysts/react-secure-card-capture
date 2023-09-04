@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import InfoModal from './modal/InfoModal';
 
 const Notification = () => {
   const duplicateCardError = useSelector((state) => state.duplicateCardError);
@@ -8,7 +9,9 @@ const Notification = () => {
     return null;
   }
 
-  return <div className="notification">{duplicateCardError}</div>;
+  return <div>
+    <InfoModal errorMessage={duplicateCardError}></InfoModal>
+  </div>
 };
 
 export default Notification;

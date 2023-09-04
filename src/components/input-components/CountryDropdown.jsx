@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import listOfCountries from "../../utils/Countries";
 
-const CountryDropdown = ({ selectedCountry, onSelectCountry }) => {
+import ErrorMesseges from "./ErrorMessages";
+import bannedCountries from "../../utils/BannedCountries";
+
+const CountryDropdown = ({ value, setIsValid, onChange }) => {
+  const [touched, setTouched] = useState(false);
+
   return (
     <div className="mb-2">
       <select
         data-testid="country-dropdown"
-        value={selectedCountry}
+        value={value}
+        onBlur={() => setTouched(true)}
         onChange={(e) => {
           const selectedValue = e.target.value;
-          onSelectCountry(selectedValue); // Call onSelectCountry with the selected value
+
+          console.log(selectedValue);
+          onChange(selectedValue);
         }}
-        className="w-full p-2 rounded border focus:outline-none focus:ring"
+        className="primary-input w-full p-2 rounded border focus:outline-none focus:ring"
       >
         <option value="">Select a card country</option>
         {listOfCountries.map((country, index) => (
@@ -20,6 +28,15 @@ const CountryDropdown = ({ selectedCountry, onSelectCountry }) => {
           </option>
         ))}
       </select>
+      {
+        <ErrorMesseges
+          label="Country"
+          validations={{ required: true, restricted: bannedCountries }}
+          value={value}
+          touched={touched}
+          setIsValid={setIsValid}
+        />
+      }
     </div>
   );
 };
