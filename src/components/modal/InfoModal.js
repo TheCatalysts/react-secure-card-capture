@@ -8,7 +8,8 @@ export default function InfoModal({ errorMessage, onClose }) {
   const cancelButtonRef = useRef(null)
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <div data-testid="Notification">
+    <Transition.Root  show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
         <Transition.Child
           as={Fragment}
@@ -71,5 +72,6 @@ export default function InfoModal({ errorMessage, onClose }) {
         </div>
       </Dialog>
     </Transition.Root>
+  </div>
   )
 }

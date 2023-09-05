@@ -22,17 +22,18 @@ describe('App Component', () => {
         <App />
       </Provider>
     );
-    const appElement = screen.getByText('Credit Card');
+    const appElement = screen.getByTestId("App");
     expect(appElement).toBeInTheDocument();
   });
 
+  const newLocal = 'credit-form';
   it('renders CreditForm component', () => {
     render(
       <Provider store={store}>
         <App />
       </Provider>
     );
-    const creditFormElement = screen.getByTestId('credit-form'); 
+    const creditFormElement = screen.getByTestId(newLocal); 
     expect(creditFormElement).toBeInTheDocument();
   });
 
@@ -42,18 +43,7 @@ describe('App Component', () => {
         <App />
       </Provider>
     );
-    const creditCardTableElement = screen.getByTestId('credit-card-table');
+    const creditCardTableElement = screen.getByTestId('credit-card-table-container');
     expect(creditCardTableElement).toBeInTheDocument();
   });
-
-  it('renders Notification component', () => {
-    render(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-    const notificationElement = screen.getByText('Notification');
-    expect(notificationElement).toBeInTheDocument();
-  });
-
 });

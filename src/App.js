@@ -6,7 +6,7 @@ import Notification from './components/Notification';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="App">
       <Notification />
       <div className="min-h-screen flex items-center justify-center">
         <div className="w-90-vw bg-white-095 rounded shadow-md">

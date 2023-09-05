@@ -5,7 +5,7 @@ const CreditCardTable = () => {
   const cards = useSelector((state) => Object.values(state.cards));
 
   return (
-    <div className="">
+    <div data-testid="credit-card-table-container">
       <h2 className="text-2xl font-semibold mb-4 text-2xl header">Stored Credit Cards</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border rounded shadow">
