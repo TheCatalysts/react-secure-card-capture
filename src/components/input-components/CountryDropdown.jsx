@@ -10,17 +10,15 @@ const CountryDropdown = ({ value, setIsValid, onChange }) => {
   return (
     <div className="mb-2">
       <select
+        id="country-dropdown"
         data-testid="country-dropdown"
         value={value}
         onBlur={() => setTouched(true)}
         onChange={(e) => {
           const selectedValue = e.target.value;
-
-          console.log(selectedValue);
           onChange(selectedValue);
         }}
-        className="primary-input w-full p-2 rounded border focus:outline-none focus:ring"
-      >
+        className="primary-input w-full p-2 rounded border focus:outline-none focus:ring">
         <option value="">Select a card country</option>
         {listOfCountries.map((country, index) => (
           <option key={index} value={country}>

@@ -11,8 +11,7 @@ export const useCardForm = (initialCardData, onSubmit) => {
 
   const handleSubmit = (event) => {
     onSubmit(cardData);
-    setCardData(initialCardData);
-    setCardErrors = null;
+    //setCardData(initialCardData); 
   };
 
   return {
@@ -20,5 +19,6 @@ export const useCardForm = (initialCardData, onSubmit) => {
     handleChange,
     handleSubmit,
     errors,
+    setCardErrors
   };
 };

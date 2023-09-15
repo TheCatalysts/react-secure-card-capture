@@ -1,8 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { createSelector } from 'reselect';
+
+// Create a memoized selector
+const selectCreditCards = createSelector(
+  (state) => Object.values(state.cards),
+  (cards) => cards
+);
 
 const CreditCardTable = () => {
-  const cards = useSelector((state) => Object.values(state.cards));
+  const cards = useSelector(selectCreditCards);
 
   return (
     <div data-testid="credit-card-table-container">

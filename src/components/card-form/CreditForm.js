@@ -1,19 +1,20 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import locale from "antd/lib/locale/en_US";
 import { addCard } from "../../actions/cardActions";
 import { useCardForm } from "../../utils/formUtils";
 import InputField from "../input-components/InputField";
 import listOfCountries from "../../utils/Countries";
 import CountryDropdown from "../input-components/CountryDropdown";
-import MonthPicker from '../input-components/MonthPicker'; 
+import MonthPicker from '../input-components/MonthPicker';
 import InfoModal from "../modal/InfoModal";
 
 const CreditForm = () => {
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.cards);
-  const [isDuplicateEntry, setIsDuplicateEntry] = useState(false)
+  const [isDuplicateEntry, setIsDuplicateEntry] = useState(false);
 
-  const { cardData, handleChange, handleSubmit} = useCardForm(
+  const { cardData, handleChange, handleSubmit } = useCardForm(
     {
       cardNumber: "",
       cardName: "",
@@ -44,7 +45,7 @@ const CreditForm = () => {
     if (existing) {
       setIsDuplicateEntry(true);
     } else {
-      handleSubmit()
+      handleSubmit();
     }
   }
 
@@ -57,7 +58,7 @@ const CreditForm = () => {
           </div>
           : null
       }
-      <form onSubmit={onSubmit} data-testid ="credit-form">
+      <form onSubmit={onSubmit} id="credit-form" data-testid="credit-form">
         <h4 className="text-2xl header font-bold mb-6">Credit Card</h4>
 
         <InputField
@@ -81,13 +82,16 @@ const CreditForm = () => {
           data-testid="credit-card-form-cardName"
           setIsValid={(value) => handleIsValidChange("cardName", value)}
         />
+
         <MonthPicker
           id={generateId("cardExpiry")}
           label="Card Expiry"
           value={cardData.cardExpiry}
           onChange={(value) => handleChange("cardExpiry", value)}
-          validations={{ required: true }}
           type="text"
+          locale={locale}
+          format="MM/YY"
+          validations={{ required: true }}
           data-testid="credit-card-form-cardExpiry"
           setIsValid={(value) => handleIsValidChange("cardExpiry", value)}
         />
@@ -103,6 +107,7 @@ const CreditForm = () => {
           data-testid="credit-card-form-cardCVC"
           setIsValid={(value) => handleIsValidChange("cardCVC", value)}
         />
+
         <CountryDropdown
           value={cardData.cardCountry}
           onChange={(value) => handleChange("cardCountry", value)}
@@ -113,9 +118,7 @@ const CreditForm = () => {
         <button
           id={generateId("submit-button")}
           className={`w-full text-white py-2 px-4 rounded hover-bg-primary focus:outline-none focus:ring` + (isFormInvalid() ? ' disabled' : '')}
-          disabled={isFormInvalid()}
-
-        >
+          disabled={isFormInvalid()} >
           Submit
         </button>
       </form>

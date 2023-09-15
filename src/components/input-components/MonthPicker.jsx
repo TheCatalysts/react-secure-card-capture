@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import ErrorMesseges from "./ErrorMessages";
-import * as moment from "moment";
-const MonthPickeer = ({
+import locale from "antd/lib/locale/en_US";
+import { DatePicker, Space } from "antd";
+
+const MonthPicker = ({
   id,
   label,
   value,
-  onChange,
   type,
-  name,
   setIsValid,
+  validations,
+  onChange,
 }) => {
-  const [isMonthtouched, setMonthTouched] = useState(false);
-  const [isYeartouched, setYearTouched] = useState(false);
-  const [state, setState] = useState({
-    month: null,
-    year: null,
-  });
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [touched, setTouched] = useState(false);
 
-  const computeDate = (field, value) => {
-    const values = { ...state, [field]: value };
-    setState(values);
-    onChange(moment(new Date(state.year, state.month, 1)).format("DD/MM/YYYY"));
-    setIsValid(true);
+  const handleDateChange = (date, dateString) => {
+    setSelectedDate(date);
+    onChange(dateString);
   };
 
   return (
@@ -33,60 +29,36 @@ const MonthPickeer = ({
         {label}
       </label>
       <div className="flex">
-        <div className="w-1/3">
-          <input
-            id={id}
-            name={name}
-            onBlur={() => setMonthTouched(true)}
-            className={`primary-input w-full p-2 rounded border focus:outline-none focus:ring 
-            
-        `}
-            placeholder="MM"
-            type="number"
-            value={state.month}
-            onChange={(e) => {
-              computeDate("month", e.target.value);
-            }}
-          />
-          {
-            <ErrorMesseges
-              label="Month"
-              validations={{ required: true, min: 1, max: 12 }}
-              value={state.month}
-              touched={isMonthtouched}
-              setIsValid={setIsValid}
+        <div className="mb-2">
+          <Space direction="vertical">
+            <DatePicker
+              id={id}
+              locale={locale}
+              value={selectedDate}
+              type={type}
+              format="MM/YY"
+              onChange={handleDateChange}
+              onBlur={() => setTouched(true)}
+              validations={validations}
+              className={`primary-input w-full p-2 rounded border focus:outline-none focus:ring `}
+              renderExtraFooter={() => (
+                <div className="text-gray-400">MM/YY format</div>
+              )}
             />
-          }
+          </Space>
         </div>
-        /
-        <div className="w-2/3">
-          <input
-            placeholder="YYYY"
-            id={id}
-            name={name}
-            value={state.year}
-            onBlur={() => setYearTouched(true)}
-            className={`primary-input w-full p-2 rounded border focus:outline-none focus:ring 
-      
-        `}
-            type={type}
-            onChange={(e) => {
-              computeDate("year", e.target.value);
-            }}
+        {
+          <ErrorMesseges
+            label={label}
+            validations={{ required: true }}
+            value={value}
+            setIsValid={setIsValid}
+            touched={touched}
           />
-          {
-            <ErrorMesseges
-              label="Year"
-              validations={{ required: true, min: 2000 }}
-              value={state.year}
-              touched={isYeartouched}
-              setIsValid={setIsValid}
-            />
-          }
-        </div>
+        }
       </div>
     </div>
   );
 };
 
-export default MonthPickeer;
+export default MonthPicker;

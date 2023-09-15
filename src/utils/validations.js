@@ -1,4 +1,3 @@
-// Validation function
 export const inputValidator = (label, value, validations) => {
 
     if (!validations) return;

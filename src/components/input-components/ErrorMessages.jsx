@@ -5,7 +5,7 @@ const ErrorMessages = ({ label, value, validations, setIsValid, touched }) => {
 
   useEffect(() => {
     setIsValid(errors.length === 0);
-  }, [errors]);
+  }, [errors, setIsValid]);
 
   return touched ? (
     <div className="mb-2">
