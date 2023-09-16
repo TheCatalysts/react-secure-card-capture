@@ -6,7 +6,6 @@ import bannedCountries from "../../utils/BannedCountries";
 
 const CountryDropdown = ({ value, setIsValid, onChange }) => {
   const [touched, setTouched] = useState(false);
-  const generateId = (fieldName) => `credit-card-form-${fieldName}`;
 
   return (
     <div className="mb-2">
