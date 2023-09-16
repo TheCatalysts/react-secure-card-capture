@@ -9,7 +9,7 @@ const ErrorMessages = ({ label, value, validations, setIsValid, touched }) => {
 
   return touched ? (
     <div className="mb-2">
-      {errors?.length ? <p className="errors">{errors[0]}</p> : null}
+      {errors?.length ? <p className="errors" data-testid="error">{errors[0]}</p> : null}
     </div>
   ) : null;
 };

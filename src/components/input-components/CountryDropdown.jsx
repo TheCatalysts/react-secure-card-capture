@@ -6,6 +6,7 @@ import bannedCountries from "../../utils/BannedCountries";
 
 const CountryDropdown = ({ value, setIsValid, onChange }) => {
   const [touched, setTouched] = useState(false);
+  const generateId = (fieldName) => `credit-card-form-${fieldName}`;
 
   return (
     <div className="mb-2">
@@ -13,12 +14,13 @@ const CountryDropdown = ({ value, setIsValid, onChange }) => {
         id="country-dropdown"
         data-testid="country-dropdown"
         value={value}
-        onBlur={() => setTouched(true)}
+        onClick={() => setTouched(true)}
         onChange={(e) => {
           const selectedValue = e.target.value;
           onChange(selectedValue);
         }}
-        className="primary-input w-full p-2 rounded border focus:outline-none focus:ring">
+        className="primary-input w-full p-2 rounded border focus:outline-none focus:ring"
+      >
         <option value="">Select a card country</option>
         {listOfCountries.map((country, index) => (
           <option key={index} value={country}>
@@ -33,6 +35,7 @@ const CountryDropdown = ({ value, setIsValid, onChange }) => {
           value={value}
           touched={touched}
           setIsValid={setIsValid}
+          data-testid="country-error"
         />
       }
     </div>
