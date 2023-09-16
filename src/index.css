@@ -77,11 +77,8 @@ code {
 
 .disabled {
   cursor: not-allowed;
-  /* Change cursor to indicate disabled state */
   opacity: 0.6;
-  /* Reduce opacity to visually indicate disabled state */
   pointer-events: none;
-  /* Disable pointer events on the element */
 }
 
 .icon {
@@ -96,7 +93,6 @@ code {
 
 .credit-cards-table-container {
   background-color: #dfe0d9;
-  /* color: #6b7551; */
 }
 
 .credit-cards-table-container table {

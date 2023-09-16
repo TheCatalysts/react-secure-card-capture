@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-// Create a memoized selector
 const selectCreditCards = createSelector(
   (state) => Object.values(state.cards),
   (cards) => cards

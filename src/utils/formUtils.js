@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 export const useCardForm = (initialCardData, onSubmit) => {
@@ -9,9 +8,8 @@ export const useCardForm = (initialCardData, onSubmit) => {
     setCardData((prevData) => ({ ...prevData, [field]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     onSubmit(cardData);
-    //setCardData(initialCardData); 
   };
 
   return {

@@ -1,4 +1,4 @@
-# Credit Card Validation App using React.js , Redux store and Tailwind CSS
+# Credit Card Validation App
 
 This project is a front-end application built using React.js and Tailwind CSS that allows users to submit credit card details for validation. The application checks the specified country against a list of banned countries, stores valid cards for the session using redux store, and displays captured credit cards during the session.
 

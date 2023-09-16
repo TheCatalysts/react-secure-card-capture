@@ -3,9 +3,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default function InfoModal({ errorMessage, onClose }) {
-  const [open, setOpen] = useState(true)
-
-  const cancelButtonRef = useRef(null)
+  const [open, setOpen] = useState(true);
+  const cancelButtonRef = useRef(null);
 
   return (
     <div data-testid="Notification">
