@@ -27,7 +27,7 @@ export const inputValidator = (label, value, validations) => {
     }
 
     if (validations?.restricted?.length && validations.restricted.includes(value)) {
-        errors.push(`${label} cannot have a value of ${value}`)
+        errors.push(`${value} is a banned ${label}`)
     }
 
     return errors;

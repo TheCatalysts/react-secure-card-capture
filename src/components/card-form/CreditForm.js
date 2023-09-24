@@ -8,11 +8,15 @@ import listOfCountries from "../../utils/Countries";
 import CountryDropdown from "../input-components/CountryDropdown";
 import MonthPicker from '../input-components/MonthPicker';
 import InfoModal from "../modal/InfoModal";
+//import bannedCountries from "../../utils/BannedCountries"; // Import the list of banned countries
+
 
 const CreditForm = () => {
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.cards);
   const [isDuplicateEntry, setIsDuplicateEntry] = useState(false);
+  const [isCountryBanned, setIsCountryBanned] = useState(false); // Initialize the banned country flag
+
 
   const { cardData, handleChange, handleSubmit } = useCardForm(
     {
@@ -35,6 +39,9 @@ const CreditForm = () => {
   }
   const handleIsValidChange = (field, isValid) => {
     errors[field] = isValid;
+    if (field === "cardCountry") {
+      setIsCountryBanned(!isValid); // Update the banned country flag
+    }
   };
 
   const generateId = (fieldName) => `credit-card-form-${fieldName}`;
@@ -44,7 +51,13 @@ const CreditForm = () => {
     const existing = cards[cardData.cardNumber];
     if (existing) {
       setIsDuplicateEntry(true);
-    } else {
+    } else if (isCountryBanned) { // Check if the selected country is banned
+      setIsDuplicateEntry(false); // Reset the duplicate entry flag
+      // Handle the case where the selected country is banned (e.g., display an error)
+      //alert("Cannot save data with a banned country.");
+    }
+    else {
+      setIsDuplicateEntry(false);
       handleSubmit();
     }
   }
