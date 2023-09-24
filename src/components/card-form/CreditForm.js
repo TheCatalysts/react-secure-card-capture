@@ -13,7 +13,7 @@ const CreditForm = () => {
   const dispatch = useDispatch();
   const cards = useSelector((state) => state.cards);
   const [isDuplicateEntry, setIsDuplicateEntry] = useState(false);
-  const [isCountryBanned, setIsCountryBanned] = useState(false); // Initialize the banned country flag
+  const [isCountryBanned, setIsCountryBanned] = useState(false); 
 
   const { cardData, handleChange, handleSubmit } = useCardForm(
     {
@@ -37,7 +37,7 @@ const CreditForm = () => {
   const handleIsValidChange = (field, isValid) => {
     errors[field] = isValid;
     if (field === "cardCountry") {
-      setIsCountryBanned(!isValid); // Update the banned country flag
+      setIsCountryBanned(!isValid); 
     }
   };
 
