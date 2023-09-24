@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.fd9144b4.css",
-    "main.js": "/static/js/main.ddeeb8da.js",
-    "static/js/787.0f8e63a7.chunk.js": "/static/js/787.0f8e63a7.chunk.js",
-    "static/media/bg.jpeg": "/static/media/bg.beda65d20c8875a6e7ca.jpeg",
-    "index.html": "/index.html",
-    "main.fd9144b4.css.map": "/static/css/main.fd9144b4.css.map",
-    "main.ddeeb8da.js.map": "/static/js/main.ddeeb8da.js.map",
-    "787.0f8e63a7.chunk.js.map": "/static/js/787.0f8e63a7.chunk.js.map"
+    "main.css": "/react-secure-card-capture/static/css/main.1be35770.css",
+    "main.js": "/react-secure-card-capture/static/js/main.15ab7c39.js",
+    "static/js/787.0f8e63a7.chunk.js": "/react-secure-card-capture/static/js/787.0f8e63a7.chunk.js",
+    "static/media/bg.jpeg": "/react-secure-card-capture/static/media/bg.beda65d20c8875a6e7ca.jpeg",
+    "index.html": "/react-secure-card-capture/index.html",
+    "main.1be35770.css.map": "/react-secure-card-capture/static/css/main.1be35770.css.map",
+    "main.15ab7c39.js.map": "/react-secure-card-capture/static/js/main.15ab7c39.js.map",
+    "787.0f8e63a7.chunk.js.map": "/react-secure-card-capture/static/js/787.0f8e63a7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd9144b4.css",
-    "static/js/main.ddeeb8da.js"
+    "static/css/main.1be35770.css",
+    "static/js/main.15ab7c39.js"
   ]
 }
