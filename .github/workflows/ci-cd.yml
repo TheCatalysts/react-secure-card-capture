@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
@@ -27,8 +27,13 @@ jobs:
       - name: Run Tests
         run: npm test
 
+      - name: Configure Git
+        run: |
+          git config user.name "Nombuso Khuzwayo"
+          git config user.email "sthelonombusor@gmail.com"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PAT_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./build
