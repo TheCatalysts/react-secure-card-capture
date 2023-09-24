@@ -45,5 +45,6 @@
   },
   "devDependencies": {
     "resize-observer-polyfill": "^1.5.1"
-  }
+  },
+  "homepage": "https://thecatalysts.github.io/react-secure-card-capture"
 }
